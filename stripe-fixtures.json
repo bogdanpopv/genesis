@@ -8,7 +8,7 @@
       "path": "/v1/products",
       "method": "post",
       "params": {
-        "name": "Basic",
+        "name": "Basic10",
         "description": "Perfect product for small businesses.",
         "metadata": {
           "price_card_variant": "basic",
@@ -53,7 +53,7 @@
       "path": "/v1/products",
       "method": "post",
       "params": {
-        "name": "Pro",
+        "name": "Pro10",
         "description": "Perfect product for growing or large businesses.",
         "metadata": {
           "price_card_variant": "pro",
@@ -98,7 +98,7 @@
       "path": "/v1/products",
       "method": "post",
       "params": {
-        "name": "Enterprise",
+        "name": "Enterprise10",
         "description": "Perfect product for enterprises.",
         "metadata": {
           "price_card_variant": "enterprise",

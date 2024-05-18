@@ -1,5 +1,5 @@
 {
-  "name": "UPDATE_THIS_WITH_YOUR_APP_NAME",
+  "name": "Genesis",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,9 @@
     "email:build": "email build",
     "email:dev": "email dev --dir ./src/features/emails --port 3001",
     "email:export": "email export",
-    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks --project-name=UPDATE_THIS_WITH_YOUR_STRIPE_PROJECT_NAME",
-    "generate-types": "npx supabase gen types typescript --project-id UPDATE_THIS_WITH_YOUR_SUPABASE_PROJECT_ID --schema public > src/libs/supabase/types.ts",
-    "supabase:link": "env-cmd -f ./.env.local supabase link --project-ref UPDATE_THIS_WITH_YOUR_SUPABASE_PROJECT_ID",
+    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks",
+    "generate-types": "npx supabase gen types typescript --project-id gwayunarcqwvenphrhsp --schema public > src/libs/supabase/types.ts",
+    "supabase:link": "env-cmd -f ./.env.local supabase link --project-ref gwayunarcqwvenphrhsp",
     "migration:new": "supabase migration new",
     "migration:up": "supabase migration up --linked --debug && npm run generate-types",
     "migration:squash": "supabase migration squash --linked"
@@ -51,7 +51,7 @@
     "@types/react": "18.2.43",
     "@types/react-dom": "18.2.18",
     "autoprefixer": "10.4.14",
-    "env-cmd": "10.1.0",
+    "env-cmd": "^10.1.0",
     "eslint": "8.55.0",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "8.8.0",
