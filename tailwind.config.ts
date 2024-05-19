@@ -56,7 +56,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-montserrat)', ...fontFamily.sans],
-        alt: ['var(--font-montserrat-alternates)'],
+        alt: ['var(--font-space-mono)'],
       },
       keyframes: {
         'accordion-down': {

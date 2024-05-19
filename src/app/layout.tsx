@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
-import { Montserrat, Montserrat_Alternates } from 'next/font/google';
+import { Montserrat, Montserrat_Alternates, Space_Mono } from 'next/font/google';
 import Link from 'next/link';
 import { IoLogoFacebook, IoLogoInstagram, IoLogoTwitter } from 'react-icons/io5';
 
@@ -20,9 +20,9 @@ const montserrat = Montserrat({
   subsets: ['latin'],
 });
 
-const montserratAlternates = Montserrat_Alternates({
-  variable: '--font-montserrat-alternates',
-  weight: ['500', '600', '700'],
+const spaceMono = Space_Mono({
+  variable: '--font-space-mono',
+  weight: ['400', '700'],
   subsets: ['latin'],
 });
 
@@ -33,14 +33,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang='en'>
-      <body className={cn('font-sans antialiased', montserrat.variable, montserratAlternates.variable)}>
-        <div className='m-auto flex h-full max-w-[1440px] flex-col px-4'>
+    <html className='scroll-smooth' lang='en'>
+      <body className={cn('text-dark font-sans antialiased', montserrat.variable, spaceMono.variable)}>
+        <div className='bg-[#F5F5F5]'>
           <AppBar />
           <main className='relative flex-1'>
             <div className='relative h-full'>{children}</div>
           </main>
-          <Footer />
+          <div className='bg-[#1A2B3B]'>
+            <Footer />
+          </div>
         </div>
         <Toaster />
         <Analytics />
@@ -51,66 +53,54 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
 async function AppBar() {
   return (
-    <header className='flex items-center justify-between py-8'>
-      <Logo />
-      <Navigation />
-    </header>
+    <div className='bg-white'>
+      <header className='m-auto flex max-w-[1080px] items-center px-4 pb-20 pt-8'>
+        <Logo />
+        <Navigation />
+      </header>
+    </div>
   );
 }
 
 function Footer() {
   return (
-    <footer className='mt-8 flex flex-col gap-8 text-neutral-400 lg:mt-32'>
-      <div className='flex flex-col justify-between gap-8 lg:flex-row'>
+    <footer className='mx-auto mt-8 flex max-w-[1080px] flex-col gap-4 p-4 pb-0 text-neutral-400 lg:mt-32'>
+      <div className='flex justify-between items-center'>
         <div>
-          <Logo />
+          <Link href='/' className='mr-6 flex w-fit items-center gap-2'>
+            <span className='text-3xl font-black text-white'>GENESIFY</span>
+            <div className='-ml-2 h-9 w-1 -rotate-12 bg-[#D5FF3F]'></div>
+          </Link>
         </div>
-        <div className='grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-4 lg:gap-16'>
-          <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Product</div>
-            <nav className='flex flex-col gap-2 lg:gap-6'>
-              <Link href='/pricing'>Pricing</Link>
-            </nav>
-          </div>
-          <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Company</div>
-            <nav className='flex flex-col gap-2 lg:gap-6'>
-              <Link href='/about-us'>About Us</Link>
-              <Link href='/privacy'>Privacy</Link>
-            </nav>
-          </div>
-          <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Support</div>
-            <nav className='flex flex-col gap-2 lg:gap-6'>
-              <Link href='/support'>Get Support</Link>
-            </nav>
-          </div>
-          <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Follow us</div>
-            <nav className='flex flex-col gap-2 lg:gap-6'>
-              <Link href='#'>
-                <span className='flex items-center gap-2'>
-                  <IoLogoTwitter size={22} /> <span>Twitter</span>
-                </span>
-              </Link>
-              <Link href='#'>
-                <span className='flex items-center gap-2'>
-                  <IoLogoFacebook size={22} /> <span>Facebook</span>
-                </span>
-              </Link>
-              <Link href='#'>
-                <span className='flex items-center gap-2'>
-                  <IoLogoInstagram size={22} /> <span>Instagram</span>
-                </span>
-              </Link>
-            </nav>
-          </div>
+        <div className='flex gap-4'>
+          <Link
+            className={`rounded-sm px-2 py-1 font-semibold text-white hover:bg-[#E4E4E4] hover:text-[#1A2B3B]`}
+            href='/reports'
+          >
+            Business Ideas
+          </Link>
+          <Link
+            className={`rounded-sm px-2 py-1 font-semibold text-white hover:bg-[#E4E4E4] hover:text-[#1A2B3B]`}
+            href='/reports'
+          >
+            Contact
+          </Link>
         </div>
       </div>
-      <div className='border-t border-zinc-800 py-6 text-center'>
-        <span className='text-neutral4 text-xs'>
-          Copyright {new Date().getFullYear()} © Genesis
-        </span>
+      <div className='flex items-center justify-between border-t border-neutral-600 py-6'>
+        <span className='text-xs text-white'>Copyright {new Date().getFullYear()} © Genesis</span>
+        <div className='flex gap-4 text-white'>
+          <Link href='#'>
+            <span className='flex items-center gap-2'>
+              <IoLogoTwitter size={22} />
+            </span>
+          </Link>
+          <Link href='#'>
+            <span className='flex items-center gap-2'>
+              <IoLogoFacebook size={22} />
+            </span>
+          </Link>
+        </div>
       </div>
     </footer>
   );
