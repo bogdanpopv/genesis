@@ -1,19 +1,23 @@
 import { createSupabaseServerClient } from '@/libs/supabase/supabase-server-client';
 
-export async function getReports(id?: string) {
-  const supabase = createSupabaseServerClient();
+export async function getReports(id?: string, niche?: string) {
+  const  supabase = createSupabaseServerClient();
 
-  let query = supabase.from('reports').select("*");
-
+  let query = supabase.from('reports').select("*", { count: 'exact' });
   if (id) {
     query = query.eq('id', id);
   }
 
-  const { data, error } = await query;
+  if (niche) {
+    query = query.eq('niche', niche);
+  }
 
+  
+  const { data, error, count } = await query;
+  
   if (error) {
     console.error(error.message);
   }
 
-  return data ?? (id ? null : []);
+  return { data: data ?? (id ? null : []), count: count ?? 0 };
 }

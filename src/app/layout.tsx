@@ -54,7 +54,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 async function AppBar() {
   return (
     <div className='bg-white'>
-      <header className='m-auto flex max-w-[1080px] items-center px-4 pb-20 pt-8'>
+      <header className='m-auto flex max-w-[1080px] items-center px-4 pb-8 pt-8 justify-between md:justify-normal'>
         <Logo />
         <Navigation />
       </header>
@@ -72,7 +72,7 @@ function Footer() {
             <div className='-ml-2 h-9 w-1 -rotate-12 bg-[#D5FF3F]'></div>
           </Link>
         </div>
-        <div className='flex gap-4'>
+        <div className='sm:flex gap-4 hidden'>
           <Link
             className={`rounded-sm px-2 py-1 font-semibold text-white hover:bg-[#E4E4E4] hover:text-[#1A2B3B]`}
             href='/reports'
