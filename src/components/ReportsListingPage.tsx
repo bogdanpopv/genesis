@@ -6,7 +6,23 @@ import Link from 'next/link';
 import { getReportsClient } from '@/features/pricing/controllers/get-reports-client';
 import { ArrowRightIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/outline';
 
-const ReportsListingPage = (props) => {
+interface ReportListingPageType {
+  data: {
+    id: number;
+    niche: string | null;
+    product_name: string | null;
+    product_short_description: string | null;
+    difficulty: number | null;
+    costs: number | null;
+  }[] | null;
+  count: number;
+}
+
+interface ReportsListingPageProps {
+  data: ReportListingPageType;
+}
+
+const ReportsListingPage = (props: ReportsListingPageProps) => {
   const reportsData = props?.data;
 
   const [reports, setReports] = useState(reportsData);
