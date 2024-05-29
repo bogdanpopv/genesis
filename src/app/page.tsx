@@ -9,37 +9,38 @@ export default async function HomePage() {
   return (
     <div className='flex flex-col gap-8 lg:gap-32'>
       <HeroSection />
-      <ExamplesSection />
-      <PricingSection />
+      {/* <ExamplesSection /> */}
+      {/* <PricingSection /> */}
     </div>
   );
 }
 
 function HeroSection() {
   return (
-    <section className='relative overflow-hidden lg:overflow-visible'>
-      <Container className='relative rounded-lg bg-black py-20 lg:py-[140px]'>
-        <div className='relative z-10 flex flex-col gap-5 lg:max-w-xl lg:pl-8'>
-          <div className='w-fit rounded-full bg-gradient-to-r from-[#616571] via-[#7782A9] to-[#826674] px-4 py-1 '>
-            <span className='font-alt text-sm font-semibold text-black mix-blend-soft-light'>
-              Generate banners with DALL·E
-            </span>
-          </div>
-          <h1>Instantly craft stunning Twitter banners.</h1>
-          <Button asChild variant='sexy'>
-            <Link href='/signup'>Get started for free</Link>
-          </Button>
+    <section className='bg-gradient-to-b from-white to-[#E1E5E9]'>
+      <div className='m-auto flex max-w-[1080px] flex-wrap items-end gap-14 px-4 pt-12 lg:flex-nowrap '>
+        <div className=''>
+          <h1 className='text-5xl font-bold leading-[56px] tracking-tighter md:text-[56px]'>
+            Discover Your Next Big Idea
+          </h1>
+          <h2>
+            Whether you're an entrepreneur, a startup, an established business looking to innovate or just someone
+            curious about new opportunities, Genesify is here to help you find your next big idea tailored to your
+            niche.
+          </h2>
         </div>
-      </Container>
-      <Image
-        src='/hero-shape.png'
-        width={867}
-        height={790}
-        alt=''
-        className='absolute right-0 top-0 rounded-tr-lg'
-        priority
-        quality={100}
-      />
+        <div>
+          <Image
+            src='/hero.png'
+            width={867}
+            height={790}
+            alt='Example of a report provided by Genesify'
+            className='rounded-tr-lg'
+            priority
+            quality={100}
+          />
+        </div>
+      </div>
     </section>
   );
 }

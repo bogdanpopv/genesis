@@ -61,7 +61,7 @@ const ReportsListingPage = (props: ReportsListingPageProps) => {
           </select>
         </div>
       </div>
-      <div className='flex flex-col gap-6'>
+      <div className='flex flex-col gap-6 w-full'>
         <span className='mb-4 block border-b pb-2 font-alt text-lg font-bold'>Results: {reports.count}</span>
         {reports.data?.map((report) => (
           <div key={report.id} className='flex flex-col gap-3 rounded-xl bg-white p-5 shadow-lg'>
@@ -90,7 +90,6 @@ const ReportsListingPage = (props: ReportsListingPageProps) => {
                   <ChartBarIcon className='h-5 w-5 text-[#132030]' />
                 </div>
                 <div>
-                  F
                   <div className='font-alt text-base'>
                     Costs: <strong>{report.costs}</strong>
                   </div>
