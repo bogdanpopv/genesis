@@ -24,7 +24,7 @@ function HeroSection() {
             Discover Your Next Big Idea
           </h1>
           <h2>
-            Whether you're an entrepreneur, a startup, an established business looking to innovate or just someone
+            Whether youre an entrepreneur, a startup, an established business looking to innovate or just someone
             curious about new opportunities, Genesify is here to help you find your next big idea tailored to your
             niche.
           </h2>
