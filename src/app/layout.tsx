@@ -32,20 +32,31 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
+  const siteHidden = true;
   return (
     <html className='scroll-smooth' lang='en'>
       <body className={cn('text-dark font-sans antialiased', montserrat.variable, spaceMono.variable)}>
-        <div className='bg-[#F5F5F5]'>
-          <AppBar />
-          <main className='relative flex-1'>
-            <div className='relative h-full'>{children}</div>
-          </main>
-          <div className='bg-[#1A2B3B]'>
-            <Footer />
+        {!siteHidden && (
+          <div>
+            <div className='bg-[#F5F5F5]'>
+              <AppBar />
+              <main className='relative flex-1'>
+                <div className='relative h-full'>{children}</div>
+              </main>
+              <div className='bg-[#1A2B3B]'>
+                <Footer />
+              </div>
+            </div>
+            <Toaster />
+            <Analytics />
           </div>
-        </div>
-        <Toaster />
-        <Analytics />
+        )}
+        {siteHidden && (
+          <div className='flex h-full flex-col items-center justify-center'>
+            <Logo />
+            <h1>Coming Soon</h1>
+          </div>
+        )}
       </body>
     </html>
   );
@@ -54,7 +65,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 async function AppBar() {
   return (
     <div className='bg-white'>
-      <header className='m-auto flex max-w-[1080px] items-center px-4 pb-8 pt-8 justify-between md:justify-normal'>
+      <header className='m-auto flex max-w-[1080px] items-center justify-between px-4 pb-8 pt-8 md:justify-normal'>
         <Logo />
         <Navigation />
       </header>
@@ -65,14 +76,14 @@ async function AppBar() {
 function Footer() {
   return (
     <footer className='mx-auto mt-8 flex max-w-[1080px] flex-col gap-4 p-4 pb-0 text-neutral-400 lg:mt-32'>
-      <div className='flex justify-between items-center'>
+      <div className='flex items-center justify-between'>
         <div>
           <Link href='/' className='mr-6 flex w-fit items-center gap-2'>
             <span className='text-3xl font-black text-white'>GENESIFY</span>
             <div className='-ml-2 h-9 w-1 -rotate-12 bg-[#D5FF3F]'></div>
           </Link>
         </div>
-        <div className='sm:flex gap-4 hidden'>
+        <div className='hidden gap-4 sm:flex'>
           <Link
             className={`rounded-sm px-2 py-1 font-semibold text-white hover:bg-[#E4E4E4] hover:text-[#1A2B3B]`}
             href='/reports'
