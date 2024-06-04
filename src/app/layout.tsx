@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
-  const siteHidden = false;
+  const siteHidden = true;
   return (
     <html className='scroll-smooth' lang='en'>
       <body className={cn('text-dark font-sans antialiased', montserrat.variable, spaceMono.variable)}>
