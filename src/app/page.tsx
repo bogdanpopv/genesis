@@ -18,25 +18,30 @@ export default async function HomePage() {
 function HeroSection() {
   return (
     <section className='bg-gradient-to-b from-white to-[#E1E5E9]'>
-      <div className='m-auto flex max-w-[1080px] flex-wrap items-end gap-14 px-4 pt-12 lg:flex-nowrap '>
-        <div className=''>
-          <h1 className='text-5xl font-bold leading-[56px] tracking-tighter md:text-[56px]'>
-            Discover Your Next Big Idea
+      <div className='m-auto max-w-[1080px] items-end gap-14 px-4 pt-12'>
+        <div className='text-center px-20'>
+          <h1 className='text-5xl font-bold leading-[56px] tracking-tighter md:text-[56px] mb-6'>
+            Discover your next big idea
           </h1>
-          <h2>
-            Whether youre an entrepreneur, a startup, an established business looking to innovate or just someone
+          <h2 className='text-xl'>
+            Whether you&apos;re an entrepreneur, a startup, an established business looking to innovate or just someone
             curious about new opportunities, Genesify is here to help you find your next big idea tailored to your
             niche.
           </h2>
         </div>
-        <div>
+        <div className='text-center rounded-lg overflow-hidden border-4 border-neutral-200 bg-neutral-200 w-fit mx-auto'>
+          <div className='flex bg-neutral-200 px-3 pb-3 pt-2 gap-2'>
+              <div className='rounded-full w-3 h-3 bg-neutral-400'></div>
+              <div className='rounded-full w-3 h-3 bg-neutral-400'></div>
+              <div className='rounded-full w-3 h-3 bg-neutral-400'></div>
+          </div>
           <Image
             src='/hero.png'
-            width={867}
-            height={790}
+            width={1000}
+            height={1000}
             alt='Example of a report provided by Genesify'
-            className='rounded-tr-lg'
-            priority
+            className='rounded-md overflow-hidden mx-auto'
+            priority 
             quality={100}
           />
         </div>
